@@ -1,0 +1,96 @@
+@Restaurants.API_HostAddress = https://localhost:7112
+@token = CfDJ8MsiFju5D8dEhQLF9cu1mcphTuG2hOi3ZS-Wzbtv4VcK7B94ynssk5VPs7Zb7jlEN7viFutWrZTsmvZDQlheAEva23nmru_8KOVWo5TOUzrxe9fll3-5W-kq2e1bYFqGwywWC5l25nAIU65yLZR4_h6FH6NSudDBywL8HT9qcy-VMtL_I7n7zWax-mDVEH-6UMkxgh2NDfx8nM8AkLfhwWtC_jOVs1Vp5VH3rdzX9XKiWhEKt5HKsb9ELkgSVzgVgW3T3r0O2F0JFzk0w6zt0RrYmwdEgscFBdky6mS3REyWF4_wdc7Se2nLaP3NNbOEOF2XbZOZP866bMKlReF010Hnkni-7p-kaIPkAJXlLp-HgXYy6iRJU78w3oSP7z5aKFY7mr5DfOALH20T5qO0bG7_uireAdHnq6Uj_c5iowy6Th4C3gL0XTKvzpG2fDGZM552tWIlynNkOvnQhAgaeEDwn-ZRglGh7esXuSaq4-soa4SBdqKku0Frptn6suVGJI0vpPJz4xPd7AOIZFOHz94gvCuVUpy47up6bmfA5qq-7WQuj3PAc2HyT1O3L-dNNykasQyzKOKkh0NrtAaunubDnlcHDFXJM27dUnWpCHrYBlr9verLqkISuFW1WaEiHIN7jyum394GjawDdWVKdqSsjkP8s0ru7h-0aZ2aXOVM4FS94ih2HhmXwLKjy_TvLOhoDMGW2z0f4N0KFIASzgs2SfFoll8YhaGZBMcdfDw1KYDXANChfRUEw88FW1c6Nw
+
+###
+
+GET {{Restaurants.API_HostAddress}}/api/restaurants
+#Authorization: Bearer {{token}}
+###
+
+GET {{Restaurants.API_HostAddress}}/api/restaurants/4
+Authorization: Bearer {{token}}
+###
+
+POST {{Restaurants.API_HostAddress}}/api/restaurants
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "Name": "Tasty Test2",
+  "Description": "A cosy restaurant serving a variety of delicious dishes",
+  "Category": "Indian",
+  "ContactEmail": "info@tastytreats.com",
+  "ContactNumber": "04745 445 4",
+  "PostalCode":"12457-444",
+  "City": "Paris",
+  "Street": "Rue de la Paix",
+  "HasDelivery": true
+}
+
+###
+
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/145
+Authorization: Bearer {{token}}
+###
+
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/3
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "Name": "Chris's tasty Teats2",
+  "Description": "A cosy restaurant serving a variety of delicious dishes made by chris",
+  "HasDelivery": false
+}
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/restaurant/4/dishes
+Content-Type: application/json
+
+{
+ "Name": "Chicken Biriyani",
+ "Description": "A delicious dish made with basmati rice, chicken and a variety of spices",
+ "Price": 13.50,
+ "KiloCalories": 850
+}
+###
+
+GET {{Restaurants.API_HostAddress}}/api/restaurant/4/dishes
+
+###
+
+GET {{Restaurants.API_HostAddress}}/api/restaurant/4/dishes/18
+
+###
+
+DELETE {{Restaurants.API_HostAddress}}/api/restaurant/4/dishes
+
+###
+POST {{Restaurants.API_HostAddress}}/api/identity/register
+Content-Type: application/json
+
+{
+  "email": "christopher.stubbs@transparity.com",
+  "password": "Password1!"
+}
+
+###
+POST {{Restaurants.API_HostAddress}}/api/identity/login
+Content-Type: application/json
+
+{
+  "email": "christopher.stubbs@transparity.com",
+  "password": "Password1!"
+}
+###
+PATCH {{Restaurants.API_HostAddress}}/api/identity/user
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "DateOfBirth": "1990-01-01",
+  "Nationality": "British"
+}
+
+###
