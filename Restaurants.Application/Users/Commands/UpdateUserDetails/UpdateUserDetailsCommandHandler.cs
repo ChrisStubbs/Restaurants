@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Restaurants.Application.Users.Commands;
+namespace Restaurants.Application.Users.Commands.UpdateUserDetails;
 
 public class UpdateUserDetailsCommandHandler(ILogger<UpdateUserDetailsCommandHandler> logger,
     IUserContext userContext,
@@ -20,12 +20,12 @@ public class UpdateUserDetailsCommandHandler(ILogger<UpdateUserDetailsCommandHan
 
     public async Task Handle(UpdateUserDetailsCommand request, CancellationToken cancellationToken)
     {
-        var user = userContext.GetCurrentUser();    
+        var user = userContext.GetCurrentUser();
 
-        logger.LogInformation("Updating user: {UserId}, with {@Request}",user!.Id ,request);
+        logger.LogInformation("Updating user: {UserId}, with {@Request}", user!.Id, request);
 
         var dbUser = await UserStore.FindByIdAsync(user.Id, cancellationToken);
-        if(dbUser == null)
+        if (dbUser == null)
         {
             throw new NotFoundException(nameof(User), user!.Id);
         }
