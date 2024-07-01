@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Restaurants.Infrastucture.Authorization;
+﻿namespace Restaurants.Infrastucture.Authorization;
 
 public static class PolicyNames
 {
     public const string HasNationality = "HasNationality";
 
     public const string AtLeast20 = "AtLeast20";
+
+    public const string CreatedAtLeast2Restaurants = "CreatedAtLeast2Restaurants";
 }
 public static class AppClaimTypes
 {
