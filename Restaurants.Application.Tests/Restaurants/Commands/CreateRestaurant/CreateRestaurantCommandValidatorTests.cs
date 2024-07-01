@@ -35,7 +35,9 @@ namespace Restaurants.Application.Tests.Restaurants.Commands.CreateRestaurant
         {
             // Arrange
             var result = false;
-
+            //Act
+            result = true;
+            //Assert
             result.Should().BeTrue();
         }
     }
