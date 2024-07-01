@@ -1,4 +1,5 @@
-﻿using FluentValidation.TestHelper;
+﻿using FluentAssertions;
+using FluentValidation.TestHelper;
 using Restaurants.Application.Restaurants.Commands.CreateRestaurant;
 using Xunit;
 
@@ -27,6 +28,17 @@ namespace Restaurants.Application.Tests.Restaurants.Commands.CreateRestaurant
 
             // Assert
             result.ShouldNotHaveAnyValidationErrors();
+        }
+
+        [Fact()]
+        public void DodgyTest()
+        {
+            // Arrange
+            var result = false;
+            //Act
+            result = true;
+            //Assert
+            result.Should().BeTrue();
         }
     }
 }
